@@ -1,1 +1,55 @@
-<p>teams works!</p>
+<mat-tab-group dynamicHeight animationDuration="0">
+  <mat-tab label="Default">
+
+
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let team of standard">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{team.fullName}}
+            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+          </mat-panel-title>
+          <mat-panel-description>
+            This is a summary of the content
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+        {{team.isNBAFranchise}}
+        {{team.isAllStar}}
+        {{team.city}}
+        {{team.altCityName}}
+        {{team.fullName}}
+        {{team.tricode}}
+        {{team.teamId}}
+        {{team.nickname}}
+        {{team.urlName}}
+        {{team.teamShortName}}
+        {{team.confName}}
+        {{team.divName}}
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Self aware panel
+          </mat-panel-title>
+          <mat-panel-description>
+            Currently I am {{panelOpenState ? 'open' : 'closed'}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+    <div *ngFor="let team of standard">
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Long tab">
+    <div class="example-large-box mat-elevation-z4">
+      Large content
+    </div>
+  </mat-tab>
+</mat-tab-group>

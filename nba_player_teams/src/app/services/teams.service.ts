@@ -12,7 +12,7 @@ export class TeamsService {
   constructor(private http: HttpClient) {
   }
 
-  getTeams(year: number): Observable<TeamsResponse> {
-    return this.http.get<TeamsResponse>(`${environment.baseUrl}/data/10s/prod/v1/${year}/team.json`);
+  getTeams(year: string): Observable<TeamsResponse> {
+    return this.http.get<TeamsResponse>(`${environment.baseUrl}/data/10s/prod/v1/${year}/teams.json`);
   }
 }

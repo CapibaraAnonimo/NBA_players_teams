@@ -93,7 +93,7 @@ export interface League {
   utah: Utah[];
 }
 
-export interface TeamResponse {
+export interface TeamsResponse {
   _internal: Internal;
   league: League;
 }
