@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TeamsComponent } from './components/teams/teams.component';
 import { MaterialImportsModule } from "./modules/material-imports.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { TeamsComponent } from "./components/teams/teams.component";
 
 @NgModule({
   declarations: [
