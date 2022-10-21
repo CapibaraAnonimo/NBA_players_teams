@@ -8,11 +8,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TeamsComponent} from './components/teams/teams.component';
 import {MaterialImportsModule} from "./modules/material-imports.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { TeamsDetailsComponent } from './components/teams-details/teams-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TeamsComponent
+    TeamsComponent,
+    TeamsDetailsComponent
   ],
   imports: [
     BrowserModule,
