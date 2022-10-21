@@ -1,31 +1,68 @@
 .container{
     flex-wrap: wrap; 
     padding: 50px;
+    background-color: rgb(245, 245, 245);
 }
-mat-card-header{
-    background-color: green;
-    padding-top: 10px;
-}
-mat-card-content{
-    padding: 5px;
-}
-
 .playerCard{
     display: grid;
-    width: 500px;
-    margin-top: 30px;
-    margin-left: 40px;
+    width: 530px;
+    height: 180px;
+    margin: 4px 5px;
     cursor: pointer;
-    padding: 0px;
+    padding: 0px 10px;
+    align-content: flex-end;
 }
-.playerCard div{
+img{
+    height: 150px;
+    grid-column: 2;
+}
+.pos{
+    color: rgb(128, 128, 128);
+    text-align: center;
+    font-size: 23px;
+    grid-column: 1;
+    transform: translate(12px, -15px);
+}
+.pos b{
+    color: rgb(29, 97, 35);
+    font-size: 30px;
+    font-weight: bolder;
+}
+.grid{
     display: grid;
+    height: 80px;
     grid-row: 1;
     grid-column: 3;
+    padding: 0px 40px;
+    column-gap: 10px;
+    row-gap: 20px;
+    transform: translate(23px, -10px);
 }
-.playerCard div mat-card-title{
+
+mat-card-title{
+    color: rgb(29, 97, 35);
     text-align: right;
     grid-row:1;
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 4;
+}
+.age{
+    grid-row:2;
+    grid-column: 1;
+}
+.height{
+    grid-row:2;
+    grid-column: 2;
+}
+.weight{
+    grid-row:2;
+    grid-column: 3;
+}
+.age, .height, .weight{
+    color: rgb(22, 22, 22);
+    text-align: right;
+    transform: translateY(-15px);
+}
+.age b, .height b, .weight b{
+    color: rgb(128, 128, 128);
 }
