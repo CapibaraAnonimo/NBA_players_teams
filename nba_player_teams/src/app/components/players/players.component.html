@@ -1,0 +1,13 @@
+
+
+<div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
+   <div *ngFor="let player of listPlayers" style="display: flexbox;">
+    <mat-card class="playerCard">
+        <div>
+            <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
+            <mat-card-subtitle>Age: {{this.player.dateOfBirthUTC}}</mat-card-subtitle>
+        </div>
+        <img [src]="getPlayerImg(this.player)" alt="no img">
+    </mat-card>
+   </div>
+</div>

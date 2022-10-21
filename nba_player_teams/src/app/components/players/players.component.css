@@ -1,0 +1,31 @@
+.container{
+    flex-wrap: wrap; 
+    padding: 50px;
+}
+mat-card-header{
+    background-color: green;
+    padding-top: 10px;
+}
+mat-card-content{
+    padding: 5px;
+}
+
+.playerCard{
+    display: grid;
+    width: 500px;
+    margin-top: 30px;
+    margin-left: 40px;
+    cursor: pointer;
+    padding: 0px;
+}
+.playerCard div{
+    display: grid;
+    grid-row: 1;
+    grid-column: 3;
+}
+.playerCard div mat-card-title{
+    text-align: right;
+    grid-row:1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}

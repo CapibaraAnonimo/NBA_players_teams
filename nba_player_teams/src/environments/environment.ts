@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'data.nba.net'
+  baseUrl: 'https://data.nba.net'
 };
 
 /*
