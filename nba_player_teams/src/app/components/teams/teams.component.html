@@ -1,55 +1,145 @@
 <mat-tab-group dynamicHeight animationDuration="0">
   <mat-tab label="Default">
-
-
-    <mat-accordion>
-      <mat-expansion-panel *ngFor="let team of standard">
+    <div *ngIf="standard.length == 0">No Hay datos</div>
+    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+      <mat-expansion-panel *ngFor="let team of standard" style="width: 700px; margin-bottom: 20px">
         <mat-expansion-panel-header>
-          <mat-panel-title>
+          <mat-panel-title style="font-size: 15px">
             {{team.fullName}}
             <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
           </mat-panel-title>
-          <mat-panel-description>
-            This is a summary of the content
-          </mat-panel-description>
         </mat-expansion-panel-header>
-        <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
-        {{team.isNBAFranchise}}
-        {{team.isAllStar}}
-        {{team.city}}
-        {{team.altCityName}}
-        {{team.fullName}}
-        {{team.tricode}}
-        {{team.teamId}}
-        {{team.nickname}}
-        {{team.urlName}}
-        {{team.teamShortName}}
-        {{team.confName}}
-        {{team.divName}}
-      </mat-expansion-panel>
-
-
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Self aware panel
-          </mat-panel-title>
-          <mat-panel-description>
-            Currently I am {{panelOpenState ? 'open' : 'closed'}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+        <div fxLayout="row">
+          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+              Ciudad: {{team.altCityName}}<br>
+              Nombre: {{team.fullName}}<br>
+              Acrónimo: {{team.tricode}}<br>
+              Id: {{team.teamId}}<br>
+              Nickname: {{team.nickname}}<br>
+              Localización: {{team.divName}}
+              <button mat-raised-button>Ver</button>
+            </div>
+          </div>
+        </div>
       </mat-expansion-panel>
     </mat-accordion>
-
-
-    <div *ngFor="let team of standard">
-
-    </div>
   </mat-tab>
-  <mat-tab label="Long tab">
-    <div class="example-large-box mat-elevation-z4">
-      Large content
-    </div>
+
+
+  <mat-tab label="Africa">
+    <div *ngIf="africa.length == 0">No Hay datos</div>
+    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+      <mat-expansion-panel *ngFor="let team of africa" style="width: 700px; margin-bottom: 20px">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-size: 15px">
+            {{team.fullName}}
+            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div fxLayout="row">
+          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+              Ciudad: {{team.altCityName}}<br>
+              Nombre: {{team.fullName}}<br>
+              Acrónimo: {{team.tricode}}<br>
+              Id: {{team.teamId}}<br>
+              Nickname: {{team.nickname}}<br>
+              Localización: {{team.divName}}
+              <button mat-raised-button>Ver</button>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-tab>
+
+
+  <mat-tab label="Sacramento">
+    <div *ngIf="sacramento.length == 0">No Hay datos</div>
+    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+      <mat-expansion-panel *ngFor="let team of sacramento" style="width: 700px; margin-bottom: 20px">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-size: 15px">
+            {{team.fullName}}
+            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div fxLayout="row">
+          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+              Ciudad: {{team.altCityName}}<br>
+              Nombre: {{team.fullName}}<br>
+              Acrónimo: {{team.tricode}}<br>
+              Id: {{team.teamId}}<br>
+              Nickname: {{team.nickname}}<br>
+              Localización: {{team.divName}}
+              <button mat-raised-button>Ver</button>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-tab>
+
+
+  <mat-tab label="vegas">
+    <div *ngIf="vega.length == 0">No Hay datos</div>
+    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+      <mat-expansion-panel *ngFor="let team of vega" style="width: 700px; margin-bottom: 20px">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-size: 15px">
+            {{team.fullName}}
+            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div fxLayout="row">
+          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+              Ciudad: {{team.altCityName}}<br>
+              Nombre: {{team.fullName}}<br>
+              Acrónimo: {{team.tricode}}<br>
+              Id: {{team.teamId}}<br>
+              Nickname: {{team.nickname}}<br>
+              Localización: {{team.divName}}
+              <button mat-raised-button>Ver</button>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-tab>
+
+
+  <mat-tab label="Utah">
+    <div *ngIf="utah.length == 0">No Hay datos</div>
+    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+      <mat-expansion-panel *ngFor="let team of utah" style="width: 700px; margin-bottom: 20px">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-size: 15px">
+            {{team.fullName}}
+            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div fxLayout="row">
+          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+              Ciudad: {{team.altCityName}}<br>
+              Nombre: {{team.fullName}}<br>
+              Acrónimo: {{team.tricode}}<br>
+              Id: {{team.teamId}}<br>
+              Nickname: {{team.nickname}}<br>
+              Localización: {{team.divName}}
+              <button mat-raised-button>Ver</button>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-tab>
 </mat-tab-group>

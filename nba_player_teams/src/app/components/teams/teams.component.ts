@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TeamsService} from "../../services/teams.service";
-import {Standard} from "../../interfaces/teams.interface";
+import {Africa, Sacramento, Standard, Utah, Vega} from "../../interfaces/teams.interface";
 
 @Component({
   selector: 'app-teams',
@@ -9,14 +9,21 @@ import {Standard} from "../../interfaces/teams.interface";
 })
 export class TeamsComponent implements OnInit {
   standard: Standard[] = [];
-  panelOpenState = false;
+  africa: Africa[] = [];
+  sacramento: Sacramento[] = [];
+  vega: Vega[] = [];
+  utah: Utah[] = [];
 
   constructor(private teamsService: TeamsService) {
   }
 
   ngOnInit(): void {
-    this.teamsService.getTeams('2020').subscribe(response => {
+    this.teamsService.getTeams('2018').subscribe(response => {
         this.standard = response.league.standard;
+        this.africa = response.league.africa;
+        this.sacramento = response.league.sacramento;
+        this.vega = response.league.vegas;
+        this.utah = response.league.utah;
       }
     )
   }
