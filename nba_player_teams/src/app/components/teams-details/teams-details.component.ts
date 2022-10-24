@@ -11,7 +11,7 @@ import {Standard} from "../../interfaces/players.interface";
 })
 export class TeamsDetailsComponent implements OnInit {
   id = '';
-  found = false
+  found = false;
   team: any;
   players!: Standard[];
   displayedColumns: string[] = ['firstName', 'team', 'jersey', 'pos', 'heightMeters', 'weightKilograms', 'country'];

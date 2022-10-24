@@ -2,7 +2,7 @@
     <mat-tab label="Standard">
         <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
             <div *ngFor="let player of listPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" >
+             <mat-card class="playerCard" routerLink="{{player.personId}}">
                  <div class="pos">
                      <b>{{this.player.jersey}}</b><br>
                      {{this.player.pos}}
@@ -22,7 +22,7 @@
     <mat-tab label="Africa">
         <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
             <div *ngFor="let player of africaPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" >
+             <mat-card class="playerCard" routerLink="{{player.personId}}">
                  <div class="pos">
                      <b>{{this.player.jersey}}</b><br>
                      {{this.player.pos}}
@@ -42,7 +42,7 @@
     <mat-tab label="Sacramento">
         <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
             <div *ngFor="let player of sacramentoPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" >
+             <mat-card class="playerCard" routerLink="{{player.personId}}">
                  <div class="pos">
                      <b>{{this.player.jersey}}</b><br>
                      {{this.player.pos}}
@@ -62,7 +62,7 @@
     <mat-tab label="Vega">
         <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
             <div *ngFor="let player of vegaPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" >
+             <mat-card class="playerCard" routerLink="{{player.personId}}">
                  <div class="pos">
                      <b>{{this.player.jersey}}</b><br>
                      {{this.player.pos}}
@@ -82,7 +82,7 @@
     <mat-tab label="Utah">
         <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
             <div *ngFor="let player of utahPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" >
+             <mat-card class="playerCard" routerLink="{{player.personId}}">
                  <div class="pos">
                      <b>{{this.player.jersey}}</b><br>
                      {{this.player.pos}}

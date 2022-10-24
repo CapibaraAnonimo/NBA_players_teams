@@ -4,6 +4,7 @@
     background-color: rgb(245, 245, 245);
 }
 .playerCard{
+    background-color: white;
     display: grid;
     width: 530px;
     height: 180px;
@@ -12,6 +13,9 @@
     padding: 0px 10px;
     align-content: flex-end;
     overflow: hidden;
+}
+.playerCard:hover{
+    background-color: rgb(245, 245, 245);
 }
 .prueba{
     opacity: 0.2;
