@@ -1,3 +1,11 @@
-<div>
-{{this.currentPlayer?.firstName}} {{this.currentPlayer?.lastName}}
+<div *ngIf="this.currentPlayer !=undefined">
+    <img src="{{getPlayerImg(this.currentPlayer)}}" alt="">
+    <img src="{{getTeamSVG(this.currentPlayer.teamId)}}" alt="">
+  {{ this.currentPlayer.firstName }} {{ this.currentPlayer.lastName }}
+  <div class="age"><b>Age:</b> {{ getPlayerAge(this.currentPlayer) }}</div>
+  <div class="height"><b>Height:</b> {{ this.currentPlayer.heightMeters }}m</div>
+  <div class="weight"><b>Weight:</b> {{ this.currentPlayer.weightKilograms }}kg</div>
+  <div class="country"><b>Nationality:</b> {{ this.currentPlayer.country }}</div>
+  <div class="pos"><b>Position:</b> {{ this.currentPlayer.pos }}</div>
+  <div class="jersey"><b>Jersey:</b> {{ this.currentPlayer.jersey }}</div>
 </div>
