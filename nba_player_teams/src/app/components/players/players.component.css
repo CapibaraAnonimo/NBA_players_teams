@@ -11,8 +11,18 @@
     cursor: pointer;
     padding: 0px 10px;
     align-content: flex-end;
+    overflow: hidden;
 }
-img{
+.prueba{
+    opacity: 0.2;
+    position: absolute;
+    left: 35px;
+    top: -10px;
+    width: 270px;
+    height: auto;
+}
+.playerImg{
+    z-index: 3;
     height: 150px;
     grid-column: 2;
 }
@@ -36,6 +46,7 @@ img{
     padding: 0px 40px;
     column-gap: 10px;
     row-gap: 20px;
+    z-index: 2;
     transform: translate(23px, -10px);
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { retry } from 'rxjs';
 import { Internal, League, Standard } from 'src/app/interfaces/players.interface';
 import { PlayersService } from 'src/app/services/players.service';
@@ -9,12 +9,12 @@ import { PlayersService } from 'src/app/services/players.service';
   styleUrls: ['./players.component.css']
 })
 export class PlayersComponent implements OnInit {
+  listPlayers: Standard[]=[];
 
   constructor(private PlayersService: PlayersService) { }
-  listPlayers: Standard[]=[]
 
   ngOnInit(): void {
-    this.getPlayers(2021);
+    this.getPlayers(2022);
   }
 
   getPlayers(year:number){
@@ -32,5 +32,10 @@ export class PlayersComponent implements OnInit {
     var timeDiff = Math.abs(Date.now() - new Date(player.dateOfBirthUTC).getTime());
     age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
     return age;
+  }
+  getTeamSVG(idTeam: string) {
+    // let url = 'https://cdn.nba.com/logos/nba/'+idTeam+'/global/L/logo.svg'
+    // return {'background-image': 'url('+url+')'};
+    return `https://cdn.nba.com/logos/nba/${idTeam}/global/L/logo.svg`
   }
 }
