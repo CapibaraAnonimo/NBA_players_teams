@@ -10,16 +10,24 @@ import { PlayersService } from 'src/app/services/players.service';
 })
 export class PlayersComponent implements OnInit {
   listPlayers: Standard[]=[];
+  africaPlayers: Standard[]= [];
+  sacramentoPlayers:Standard[]=[];
+  vegaPlayers: Standard[]=[];
+  utahPlayers: Standard[]=[];
 
   constructor(private PlayersService: PlayersService) { }
 
   ngOnInit(): void {
-    this.getPlayers(2022);
+    this.getPlayers(2018);
   }
 
   getPlayers(year:number){
     this.PlayersService.getPlayers(year).subscribe(resp =>{
       this.listPlayers = resp.league.standard;
+      this.africaPlayers = resp.league.africa;
+      this.sacramentoPlayers = resp.league.sacramento;
+      this.vegaPlayers = resp.league.vegas;
+      this.utahPlayers = resp.league.utah;
     })
   }
   getPlayerImg(player:Standard){
@@ -34,8 +42,10 @@ export class PlayersComponent implements OnInit {
     return age;
   }
   getTeamSVG(idTeam: string) {
-    // let url = 'https://cdn.nba.com/logos/nba/'+idTeam+'/global/L/logo.svg'
-    // return {'background-image': 'url('+url+')'};
     return `https://cdn.nba.com/logos/nba/${idTeam}/global/L/logo.svg`
+  }
+
+  handleMissingImage($evento: ErrorEvent) {
+    ($evento.target as HTMLImageElement).src = "/assets/images/missingPlayer.png";
   }
 }

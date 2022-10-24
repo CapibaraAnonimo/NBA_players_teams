@@ -1,22 +1,107 @@
+<mat-tab-group>
+    <mat-tab label="Standard">
+        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
+            <div *ngFor="let player of listPlayers" style="display: flexbox;">
+             <mat-card class="playerCard" >
+                 <div class="pos">
+                     <b>{{this.player.jersey}}</b><br>
+                     {{this.player.pos}}
+                 </div>
+                 <div class="grid">
+                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
+                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
+                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
+                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
+                 </div>
+                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
+                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
+             </mat-card>
+            </div>
+         </div>
+    </mat-tab>
+    <mat-tab label="Africa">
+        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
+            <div *ngFor="let player of africaPlayers" style="display: flexbox;">
+             <mat-card class="playerCard" >
+                 <div class="pos">
+                     <b>{{this.player.jersey}}</b><br>
+                     {{this.player.pos}}
+                 </div>
+                 <div class="grid">
+                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
+                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
+                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
+                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
+                 </div>
+                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
+                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
+             </mat-card>
+            </div>
+         </div>
+    </mat-tab>
+    <mat-tab label="Sacramento">
+        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
+            <div *ngFor="let player of sacramentoPlayers" style="display: flexbox;">
+             <mat-card class="playerCard" >
+                 <div class="pos">
+                     <b>{{this.player.jersey}}</b><br>
+                     {{this.player.pos}}
+                 </div>
+                 <div class="grid">
+                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
+                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
+                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
+                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
+                 </div>
+                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
+                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
+             </mat-card>
+            </div>
+         </div>
+    </mat-tab>
+    <mat-tab label="Vega">
+        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
+            <div *ngFor="let player of vegaPlayers" style="display: flexbox;">
+             <mat-card class="playerCard" >
+                 <div class="pos">
+                     <b>{{this.player.jersey}}</b><br>
+                     {{this.player.pos}}
+                 </div>
+                 <div class="grid">
+                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
+                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
+                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
+                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
+                 </div>
+                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
+                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
+             </mat-card>
+            </div>
+         </div>
+    </mat-tab>
+    <mat-tab label="Utah">
+        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
+            <div *ngFor="let player of utahPlayers" style="display: flexbox;">
+             <mat-card class="playerCard" >
+                 <div class="pos">
+                     <b>{{this.player.jersey}}</b><br>
+                     {{this.player.pos}}
+                 </div>
+                 <div class="grid">
+                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
+                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
+                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
+                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
+                 </div>
+                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
+                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
+             </mat-card>
+            </div>
+         </div>
+    </mat-tab>
+</mat-tab-group>
 
 
-<div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
-   <div *ngFor="let player of listPlayers" style="display: flexbox;">
-    <mat-card class="playerCard" >
-        <div class="pos">
-            <b>{{this.player.jersey}}</b><br>
-            {{this.player.pos}}
-        </div>
-        <div class="grid">
-            <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
-            <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
-            <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
-            <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
-        </div>
-        <img [src]="getPlayerImg(this.player)" class="playerImg">
-        <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
-    </mat-card>
-   </div>
-</div>
 
-<!-- [ngStyle]="getTeamSVG(this.player.teamId)" -->
+
+

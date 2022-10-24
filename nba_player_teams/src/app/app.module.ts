@@ -11,6 +11,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import { TeamsDetailsComponent } from './components/teams-details/teams-details.component';
 import { PlayersComponent } from './components/players/players.component';
 import { IndexComponent } from './components/index/index.component';
+import { PlayersDetailsComponent } from './components/players-details/players-details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { IndexComponent } from './components/index/index.component';
     TeamsComponent,
     TeamsDetailsComponent,
     PlayersComponent,
-    IndexComponent
+    IndexComponent,
+    PlayersDetailsComponent
   ],
   imports: [
     BrowserModule,
