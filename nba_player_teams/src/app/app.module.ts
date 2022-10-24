@@ -9,12 +9,16 @@ import {TeamsComponent} from './components/teams/teams.component';
 import {MaterialImportsModule} from "./modules/material-imports.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { TeamsDetailsComponent } from './components/teams-details/teams-details.component';
+import { PlayersComponent } from './components/players/players.component';
+import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamsComponent,
-    TeamsDetailsComponent
+    TeamsDetailsComponent,
+    PlayersComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
