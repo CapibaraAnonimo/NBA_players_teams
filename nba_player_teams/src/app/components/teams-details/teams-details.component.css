@@ -1,0 +1,18 @@
+table {
+  margin: auto;
+  width: 70%;
+}
+
+.header-align-right{
+  display: flex;
+  padding: 21px;
+  justify-content: flex-end;
+}
+
+.mat-column-firstName{
+  width: 20%;
+}
+
+.mat-column-team{
+  width: 5%;
+}

@@ -19,10 +19,10 @@ export interface Internal {
 
 export interface League {
     standard:   Standard[];
-    africa:     any[];
-    sacramento: any[];
-    vegas:      any[];
-    utah:       any[];
+    africa:     Standard[];
+    sacramento: Standard[];
+    vegas:      Standard[];
+    utah:       Standard[];
 }
 
 export interface Standard {
