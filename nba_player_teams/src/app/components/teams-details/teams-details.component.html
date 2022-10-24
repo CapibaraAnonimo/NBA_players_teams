@@ -1,5 +1,3 @@
-{{id}}<br>{{team.teamId}}
-
 <table mat-table [dataSource]="players" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -10,7 +8,8 @@
     <th mat-header-cell *matHeaderCellDef>Name</th>
     <td mat-cell *matCellDef="let element">
       <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{element.personId}}.png"
-           style="height: 32px" alt="{{element.firstName}} {{element.lastName}}">
+           style="height: 32px" alt="{{element.firstName}} {{element.lastName}}"
+           onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Placeholder_no_text.svg/1200px-Placeholder_no_text.svg.png';">
       {{element.firstName}} {{element.lastName}}
     </td>
   </ng-container>
@@ -18,38 +17,36 @@
   <!-- Name Column -->
   <ng-container matColumnDef="team">
     <th mat-header-cell *matHeaderCellDef>Team</th>
-    <td mat-cell *matCellDef="let element"> {{element.teamId}} </td>
+    <td mat-cell *matCellDef="let element">{{element.teamId || '?'}}</td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="jersey">
-    <th mat-header-cell *matHeaderCellDef>Jersey</th>
-    <td mat-cell *matCellDef="let element"> {{element.jersey}} </td>
+    <th mat-header-cell *matHeaderCellDef class="header-align-right">Number</th>
+    <td mat-cell *matCellDef="let element" class="header-align-right">{{element.jersey || '?'}}</td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="pos">
     <th mat-header-cell *matHeaderCellDef>Pos</th>
-    <td mat-cell *matCellDef="let element"> {{element.pos}} </td>
+    <td mat-cell *matCellDef="let element">{{element.pos || '?'}}</td>
   </ng-container>
 
   <ng-container matColumnDef="heightMeters">
-    <th mat-header-cell *matHeaderCellDef>Height</th>
-    <td mat-cell *matCellDef="let element"> {{element.heightMeters}}m</td>
+    <th mat-header-cell *matHeaderCellDef class="header-align-right">Height</th>
+    <td mat-cell *matCellDef="let element" class="header-align-right">{{element.heightMeters || '?'}}m</td>
+  </ng-container>
+
+  <ng-container matColumnDef="weightKilograms">
+    <th mat-header-cell *matHeaderCellDef>Weight</th>
+    <td mat-cell *matCellDef="let element">{{element.weightKilograms || '?'}}Kg</td>
+  </ng-container>
+
+  <ng-container matColumnDef="country">
+    <th mat-header-cell *matHeaderCellDef>Country</th>
+    <td mat-cell *matCellDef="let element">{{element.country || '?'}}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-<div *ngFor="let player of players">
-  {{player.firstName}}
-  {{player.personId}}
-  {{player.isActive}}
-  <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{player.personId}}.png">
-  {{player.teamId}}
-  <div *ngFor="let team of player.teams">
-    {{team.teamId }}
-  </div>
-  {{player.lastAffiliation}}
-</div>
