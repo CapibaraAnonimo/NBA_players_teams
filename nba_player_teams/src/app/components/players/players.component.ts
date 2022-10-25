@@ -21,11 +21,11 @@ export class PlayersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPlayers(+this.selected);
+    this.getPlayers(selected);
   }
 
-  getPlayers(year: number) {
-    this.PlayersService.getPlayers(year).subscribe(resp => {
+  getPlayers(year:string){
+    this.PlayersService.getPlayers(year).subscribe(resp =>{
       this.listPlayers = resp.league.standard;
       this.africaPlayers = resp.league.africa;
       this.sacramentoPlayers = resp.league.sacramento;
@@ -68,3 +68,4 @@ export class PlayersComponent implements OnInit {
     this.router.navigate([`/${url}`]);
   }
 }
+

@@ -9,10 +9,12 @@
     margin-bottom: 40px;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.397);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.397);
+    filter: grayscale(100%);
 }
 .button:hover{
-    box-shadow: 0 2px 12px rgb(40, 131, 67);
+    filter: grayscale(0%);
+    transform: scale(1.01);
 }
 .button div{
     z-index: 2;
