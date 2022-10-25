@@ -9,7 +9,7 @@
     margin-bottom: 40px;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.397);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.397);
     filter: grayscale(100%);
 }
 .button:hover{
@@ -38,8 +38,7 @@
     width: 600px;
     height: auto;
 }
-    
-}
+
 img{
     width: 80px;
 }
