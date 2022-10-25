@@ -11,7 +11,7 @@ export class PlayersService {
 
   constructor(private http:HttpClient) { }
   
-  getPlayers(year: number):Observable<PlayersResponse>{
+  getPlayers(year: string):Observable<PlayersResponse>{
     return this.http.get<PlayersResponse>(`${environment.baseUrl}/data/10s/prod/v1/${year}/players.json`);
   }
 }

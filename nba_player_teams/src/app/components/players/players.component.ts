@@ -14,14 +14,15 @@ export class PlayersComponent implements OnInit {
   sacramentoPlayers:Standard[]=[];
   vegaPlayers: Standard[]=[];
   utahPlayers: Standard[]=[];
+  selected: string = '2022';
 
   constructor(private PlayersService: PlayersService) { }
 
   ngOnInit(): void {
-    this.getPlayers(2018);
+    this.getPlayers('2018');
   }
 
-  getPlayers(year:number){
+  getPlayers(year:string){
     this.PlayersService.getPlayers(year).subscribe(resp =>{
       this.listPlayers = resp.league.standard;
       this.africaPlayers = resp.league.africa;
@@ -48,4 +49,19 @@ export class PlayersComponent implements OnInit {
   handleMissingImage($evento: ErrorEvent) {
     ($evento.target as HTMLImageElement).src = "/assets/images/missingPlayer.png";
   }
+  reCharge() {
+    this.listPlayers = [];
+    this.africaPlayers = [];
+    this.sacramentoPlayers = [];
+    this.vegaPlayers = [];
+    this.utahPlayers = [];
+    this.PlayersService.getPlayers(this.selected).subscribe(response => {
+      this.listPlayers = response.league.standard;
+      this.africaPlayers = response.league.africa;
+      this.sacramentoPlayers = response.league.sacramento;
+      this.vegaPlayers = response.league.vegas;
+      this.utahPlayers = response.league.utah;
+    });
+  }
 }
+
