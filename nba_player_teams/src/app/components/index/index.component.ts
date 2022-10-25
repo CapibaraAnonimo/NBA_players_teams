@@ -8,9 +8,12 @@ import {Router} from "@angular/router";
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
+
+
 export class IndexComponent implements OnInit {
   selected: string = '2022';
   schedule!: Liga[];
+  displayedColumns: string[] = ['date', 'host', 'visitor'];
 
   constructor(private scheduleService: ScheduleService, private router: Router) {
   }
@@ -21,9 +24,14 @@ export class IndexComponent implements OnInit {
 
   getSchedule() {
     this.scheduleService.getSchedule(this.selected).subscribe(response => {
-      this.schedule = response.league.standard.slice(0, 9);
+      this.schedule = response.league.standard.slice(0, 10);
     });
   }
+
+
+ getTeamLogo(id: string){
+  return `https://cdn.nba.com/logos/nba/${id}/global/L/logo.svg`
+ }
 
   reCharge() {
     this.getSchedule();

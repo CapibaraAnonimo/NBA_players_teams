@@ -19,7 +19,7 @@ export class PlayersDetailsComponent implements OnInit {
     this.route.params.subscribe(params =>{
       this.id = params['id']
     })
-    this.getPlayer('2018');
+    this.getPlayer(this.selected);
   }
 
   getPlayer(year:string){
@@ -43,8 +43,12 @@ export class PlayersDetailsComponent implements OnInit {
     return `https://cdn.nba.com/logos/nba/${idTeam}/global/L/logo.svg`
   }
 
-  reCharge(){
-  };
+  reCharge() {
+    this.playerService.getPlayers(this.selected).subscribe(resp=>{
+      let playersArray =[...resp.league.standard, ...resp.league.africa, ...resp.league.sacramento, ...resp.league.vegas, ...resp.league.utah];
+      this.currentPlayer = playersArray.find(x => x.personId === this.id);
+    })
+  }
 
   redirect(url: string) {
     this.router.navigate([`/${url}`]);

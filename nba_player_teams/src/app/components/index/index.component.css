@@ -37,8 +37,16 @@
 
     width: 600px;
     height: auto;
-
 }
+    
+}
+img{
+    width: 80px;
+}
+table {
+    width: 600px;
+  }
+
 
 .ruta{
   cursor: pointer;
