@@ -23,7 +23,7 @@ export class TeamsDetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params['id'];
       let playersTeam: Standard[] = [];
-      this.playerService.getPlayers(2022).subscribe(response => {
+      this.playerService.getPlayers('2022').subscribe(response => {
         for (let player of [...response.league.standard, ...response.league.africa, ...response.league.sacramento, ...response.league.vegas, ...response.league.utah]) {
           if (player.teamId == this.id) {
             playersTeam.push(player);

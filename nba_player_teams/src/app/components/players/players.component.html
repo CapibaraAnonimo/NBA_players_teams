@@ -1,3 +1,13 @@
+<mat-form-field appearance="fill">
+    <mat-label>Año</mat-label>
+    <mat-select [(value)]="selected" (selectionChange)="reCharge()">
+      <mat-option value="2018">2018</mat-option>
+      <mat-option value="2019">2019</mat-option>
+      <mat-option value="2020">2020</mat-option>
+      <mat-option value="2021">2021</mat-option>
+      <mat-option value="2022">2022</mat-option>
+    </mat-select>
+</mat-form-field>
 <mat-tab-group>
     <mat-tab label="Standard">
         <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">

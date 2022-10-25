@@ -18,10 +18,10 @@ export class PlayersDetailsComponent implements OnInit {
     this.route.params.subscribe(params =>{
       this.id = params['id']
     })
-    this.getPlayer(2018);
+    this.getPlayer('2018');
   }
 
-  getPlayer(year:number){
+  getPlayer(year:string){
     this.playerService.getPlayers(year).subscribe(resp=>{
       let playersArray =[...resp.league.standard, ...resp.league.africa, ...resp.league.sacramento, ...resp.league.vegas, ...resp.league.utah];
       this.currentPlayer = playersArray.find(x => x.personId === this.id);
