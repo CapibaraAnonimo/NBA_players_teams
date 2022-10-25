@@ -1,3 +1,22 @@
+<mat-toolbar style="height: min-content">
+  <div style="width: 300px" fxLayoutAlign="space-between">
+    <div (click)="redirect('')" class="ruta">Home</div>
+    <div (click)="redirect('teams')" class="ruta">Teams</div>
+    <div (click)="redirect('players')" class="ruta">Players</div>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Año</mat-label>
+    <mat-select [(value)]="selected" (selectionChange)="reCharge()">
+      <mat-option value="2018">2018</mat-option>
+      <mat-option value="2019">2019</mat-option>
+      <mat-option value="2020">2020</mat-option>
+      <mat-option value="2021">2021</mat-option>
+      <mat-option value="2022">2022</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>
+
 <div fxLayoutAlign="space-around center" class="container">
     <div class="button">
         <img src="/assets/images/teams_v2.jpg" alt="" routerLink="/teams">

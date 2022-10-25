@@ -1,156 +1,175 @@
-<mat-form-field appearance="fill">
-  <mat-label>Año</mat-label>
-  <mat-select [(value)]="selected" (selectionChange)="reCharge()">
-    <mat-option value="2018">2018</mat-option>
-    <mat-option value="2019">2019</mat-option>
-    <mat-option value="2020">2020</mat-option>
-    <mat-option value="2021">2021</mat-option>
-    <mat-option value="2022">2022</mat-option>
-  </mat-select>
-</mat-form-field>
+<mat-toolbar style="height: min-content">
+  <div style="width: 300px" fxLayoutAlign="space-between">
+    <div (click)="redirect('')" class="ruta">Home</div>
+    <div (click)="redirect('teams')" class="ruta">Teams</div>
+    <div (click)="redirect('players')" class="ruta">Players</div>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Año</mat-label>
+    <mat-select [(value)]="selected" (selectionChange)="reCharge()">
+      <mat-option value="2018">2018</mat-option>
+      <mat-option value="2019">2019</mat-option>
+      <mat-option value="2020">2020</mat-option>
+      <mat-option value="2021">2021</mat-option>
+      <mat-option value="2022">2022</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>
+
 
 <mat-tab-group dynamicHeight animationDuration="0">
   <mat-tab label="Default">
-    <div *ngIf="standard.length == 0">No Hay datos</div>
-    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
-      <mat-expansion-panel *ngFor="let team of standard" style="width: 700px; margin-bottom: 20px">
-        <mat-expansion-panel-header>
-          <mat-panel-title style="font-size: 15px">
-            {{team.fullName}}
-            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div fxLayout="row">
-          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
-          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
-            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
-              Ciudad: {{team.altCityName}}<br>
-              Nombre: {{team.fullName}}<br>
-              Acrónimo: {{team.tricode}}<br>
-              Id: {{team.teamId}}<br>
-              Nickname: {{team.nickname}}<br>
-              Localización: {{team.divName}}
-              <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+    <div class="container">
+      <div *ngIf="standard.length == 0">No Hay datos</div>
+      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of standard" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
             </div>
           </div>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </mat-tab>
 
 
   <mat-tab label="Africa">
-    <div *ngIf="africa.length == 0">No Hay datos</div>
-    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
-      <mat-expansion-panel *ngFor="let team of africa" style="width: 700px; margin-bottom: 20px">
-        <mat-expansion-panel-header>
-          <mat-panel-title style="font-size: 15px">
-            {{team.fullName}}
-            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div fxLayout="row">
-          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
-          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
-            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
-              Ciudad: {{team.altCityName}}<br>
-              Nombre: {{team.fullName}}<br>
-              Acrónimo: {{team.tricode}}<br>
-              Id: {{team.teamId}}<br>
-              Nickname: {{team.nickname}}<br>
-              Localización: {{team.divName}}
-              <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+    <div class="container">
+      <div *ngIf="africa.length == 0">No Hay datos</div>
+      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of africa" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
             </div>
           </div>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </mat-tab>
 
 
   <mat-tab label="Sacramento">
-    <div *ngIf="sacramento.length == 0">No Hay datos</div>
-    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
-      <mat-expansion-panel *ngFor="let team of sacramento" style="width: 700px; margin-bottom: 20px">
-        <mat-expansion-panel-header>
-          <mat-panel-title style="font-size: 15px">
-            {{team.fullName}}
-            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div fxLayout="row">
-          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
-          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
-            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
-              Ciudad: {{team.altCityName}}<br>
-              Nombre: {{team.fullName}}<br>
-              Acrónimo: {{team.tricode}}<br>
-              Id: {{team.teamId}}<br>
-              Nickname: {{team.nickname}}<br>
-              Localización: {{team.divName}}
-              <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+    <div class="container">
+      <div *ngIf="sacramento.length == 0">No Hay datos</div>
+      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of sacramento" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
             </div>
           </div>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </mat-tab>
 
 
   <mat-tab label="vegas">
-    <div *ngIf="vega.length == 0">No Hay datos</div>
-    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
-      <mat-expansion-panel *ngFor="let team of vega" style="width: 700px; margin-bottom: 20px">
-        <mat-expansion-panel-header>
-          <mat-panel-title style="font-size: 15px">
-            {{team.fullName}}
-            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div fxLayout="row">
-          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
-          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
-            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
-              Ciudad: {{team.altCityName}}<br>
-              Nombre: {{team.fullName}}<br>
-              Acrónimo: {{team.tricode}}<br>
-              Id: {{team.teamId}}<br>
-              Nickname: {{team.nickname}}<br>
-              Localización: {{team.divName}}
-              <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+    <div class="container">
+      <div *ngIf="vega.length == 0">No Hay datos</div>
+      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of vega" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
             </div>
           </div>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </mat-tab>
 
 
   <mat-tab label="Utah">
-    <div *ngIf="utah.length == 0">No Hay datos</div>
-    <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
-      <mat-expansion-panel *ngFor="let team of utah" style="width: 700px; margin-bottom: 20px">
-        <mat-expansion-panel-header>
-          <mat-panel-title style="font-size: 15px">
-            {{team.fullName}}
-            <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div fxLayout="row">
-          <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
-          <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
-            <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
-              Ciudad: {{team.altCityName}}<br>
-              Nombre: {{team.fullName}}<br>
-              Acrónimo: {{team.tricode}}<br>
-              Id: {{team.teamId}}<br>
-              Nickname: {{team.nickname}}<br>
-              Localización: {{team.divName}}
-              <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+    <div class="container">
+      <div *ngIf="utah.length == 0">No Hay datos</div>
+      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of utah" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
             </div>
           </div>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </mat-tab>
 </mat-tab-group>

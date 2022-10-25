@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { PlayersService } from 'src/app/services/players.service';
 import {Standard} from "../../interfaces/players.interface";
 
@@ -11,8 +11,9 @@ import {Standard} from "../../interfaces/players.interface";
 export class PlayersDetailsComponent implements OnInit {
   id= '';
   currentPlayer: Standard | undefined;
+  selected: string = '2022';
 
-  constructor(private route: ActivatedRoute, private playerService:PlayersService) { }
+  constructor(private route: ActivatedRoute, private playerService:PlayersServic, private router: Routere) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params =>{
@@ -43,3 +44,10 @@ export class PlayersDetailsComponent implements OnInit {
   }
   }
 
+  reCharge() {
+  }
+
+  redirect(url: string) {
+    this.router.navigate([`/${url}`]);
+  }
+}
