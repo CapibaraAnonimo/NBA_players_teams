@@ -53,4 +53,7 @@ export class PlayersDetailsComponent implements OnInit {
   redirect(url: string) {
     this.router.navigate([`/${url}`]);
   }
+  handleMissingImage($evento: ErrorEvent) {
+    ($evento.target as HTMLImageElement).src = "/assets/images/missingPlayer.png";
+  }
 }

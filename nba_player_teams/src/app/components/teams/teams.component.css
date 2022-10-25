@@ -17,15 +17,34 @@ body{
 
 .ruta{
   cursor: pointer;
-  padding: 5px;
+  padding: 20px;
+  height: 100%;
+  background-color: white;
 }
 
 .ruta:hover{
-  box-shadow: 1px 1px 5px lightgray;
-  border-radius: 5px;
+  background-color:rgb(245, 245, 245);
 }
 
 mat-form-field{
   margin-left: auto;
-  padding-top: 1.34375em !important;
+}
+mat-toolbar{
+  background-color: white;
+  overflow: hidden;
+}
+
+::ng-deep .mat-form-field-wrapper{
+  background-color: white;
+  margin-bottom: -0.8em;
+  margin-right: -1.25em;
+  transform: scale(0.85)translateX(10%)translateY(5px);
+}
+.header{
+  height: 300px;
+  background-color: black;
+}
+.header img{
+  height: 100%;
+  width: auto;
 }
