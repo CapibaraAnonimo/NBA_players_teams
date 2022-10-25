@@ -1,10 +1,44 @@
+
 <div fxLayoutAlign="space-around center" class="container">
-    <div class="button">
-        <img src="/assets/images/teams_v2.jpg" alt="" routerLink="/teams">
-        <div>Teams</div>
-    </div>
-    <div class="button">
-        <img src="/assets/images/players_v2.png" alt="" routerLink="/players">
-        <div>Players</div>
-    </div>
+  <div class="button">
+    <img src="/assets/images/teams_v2.jpg" alt="" routerLink="/teams" />
+    <div>Teams</div>
+  </div>
+  <div class="button">
+    <img src="/assets/images/players_v2.png" alt="" routerLink="/players" />
+    <div>Players</div>
+  </div>
+</div>
+<h1 fxLayoutAlign="space-around center">Last 10 matches</h1>
+<div fxLayoutAlign="space-around center">
+  <table mat-table [dataSource]="schedule" class="mat-elevation-z8">
+    <!-- Fate Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.startTimeUTC | date: "shortDate":"UTC" }}
+      </td>
+    </ng-container>
+
+    <!-- Host Column -->
+    <ng-container matColumnDef="host">
+      <th mat-header-cell *matHeaderCellDef>Host Team</th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="getTeamLogo(this.element.hTeam.teamId)" alt="" />
+        {{ element.hTeam.score }}
+      </td>
+    </ng-container>
+
+    <!-- Visitor Column -->
+    <ng-container matColumnDef="visitor">
+      <th mat-header-cell *matHeaderCellDef>Visitor Team</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.vTeam.score }}
+        <img [src]="getTeamLogo(this.element.vTeam.teamId)" alt="" />
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 </div>

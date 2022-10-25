@@ -19,7 +19,7 @@ export class PlayersComponent implements OnInit {
   constructor(private PlayersService: PlayersService) { }
 
   ngOnInit(): void {
-    this.getPlayers('2018');
+    this.getPlayers(this.selected);
   }
 
   getPlayers(year:string){

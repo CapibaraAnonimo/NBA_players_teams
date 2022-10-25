@@ -39,3 +39,12 @@
     height: auto;
     
 }
+img{
+    width: 80px;
+}
+table {
+    width: 600px;
+  }
+  td, th{
+    align-content: center;
+  }
