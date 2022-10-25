@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TeamsService} from "../../services/teams.service";
 import {Africa, Sacramento, Standard, Utah, Vega} from "../../interfaces/teams.interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-teams',
@@ -15,7 +16,7 @@ export class TeamsComponent implements OnInit {
   utah: Utah[] = [];
   selected: string = '2022';
 
-  constructor(private teamsService: TeamsService) {
+  constructor(private teamsService: TeamsService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -45,5 +46,9 @@ export class TeamsComponent implements OnInit {
       this.vega = response.league.vegas;
       this.utah = response.league.utah;
     });
+  }
+
+  redirect(url: string) {
+    this.router.navigate([`/${url}`]);
   }
 }

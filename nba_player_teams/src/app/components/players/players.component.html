@@ -1,4 +1,11 @@
-<mat-form-field appearance="fill">
+<mat-toolbar style="height: min-content">
+  <div style="width: 300px" fxLayoutAlign="space-between">
+    <div (click)="redirect('')" class="ruta">Home</div>
+    <div (click)="redirect('teams')" class="ruta">Teams</div>
+    <div (click)="redirect('players')" class="ruta">Players</div>
+  </div>
+
+  <mat-form-field appearance="fill">
     <mat-label>Año</mat-label>
     <mat-select [(value)]="selected" (selectionChange)="reCharge()">
       <mat-option value="2018">2018</mat-option>
@@ -7,7 +14,8 @@
       <mat-option value="2021">2021</mat-option>
       <mat-option value="2022">2022</mat-option>
     </mat-select>
-</mat-form-field>
+  </mat-form-field>
+</mat-toolbar>
 <mat-tab-group>
     <mat-tab label="Standard">
         <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Liga} from "../../interfaces/schedule.interface";
 import {ScheduleService} from "../../services/schedule.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-index',
@@ -12,11 +13,9 @@ import {ScheduleService} from "../../services/schedule.service";
 export class IndexComponent implements OnInit {
   selected: string = '2022';
   schedule!: Liga[];
-
   displayedColumns: string[] = ['date', 'host', 'visitor'];
 
-  
-  constructor(private scheduleService: ScheduleService) {
+  constructor(private scheduleService: ScheduleService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -29,7 +28,16 @@ export class IndexComponent implements OnInit {
     });
   }
 
+
  getTeamLogo(id: string){
   return `https://cdn.nba.com/logos/nba/${id}/global/L/logo.svg`
  }
+
+  reCharge() {
+    this.getSchedule();
+  }
+
+  redirect(url: string) {
+    this.router.navigate([`/${url}`]);
+  }
 }
