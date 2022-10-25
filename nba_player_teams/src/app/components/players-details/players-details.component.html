@@ -1,4 +1,7 @@
-<mat-toolbar style="height: min-content">
+<div class="header" fxLayoutAlign="space-around center">
+  <img src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png" alt="">
+</div>
+<mat-toolbar >
   <div style="width: 300px" fxLayoutAlign="space-between">
     <div (click)="redirect('')" class="ruta">Home</div>
     <div (click)="redirect('teams')" class="ruta">Teams</div>
@@ -20,7 +23,7 @@
 <div class="main">
   <div *ngIf="this.currentPlayer != undefined" class="container">
     <img src="{{ getTeamSVG(this.currentPlayer.teamId) }}" class="logo" />
-    <img src="{{ getPlayerImg(this.currentPlayer) }}" class="playerImg" />
+    <img src="{{ getPlayerImg(this.currentPlayer) }}" class="playerImg" (error)="handleMissingImage($event)"/>
 
     <div class="info">
       <div class="name">
