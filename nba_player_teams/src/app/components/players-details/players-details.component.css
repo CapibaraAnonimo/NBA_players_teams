@@ -1,0 +1,14 @@
+.ruta{
+  cursor: pointer;
+  padding: 5px;
+}
+
+.ruta:hover{
+  box-shadow: 1px 1px 5px lightgray;
+  border-radius: 5px;
+}
+
+mat-form-field{
+  margin-left: auto;
+  padding-top: 1.34375em !important;
+}

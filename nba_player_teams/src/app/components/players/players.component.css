@@ -1,5 +1,5 @@
 .container{
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     padding: 50px;
     background-color: rgb(245, 245, 245);
 }
@@ -9,7 +9,7 @@
     height: 180px;
     margin: 4px 5px;
     cursor: pointer;
-    padding: 0px 10px;
+    padding: 0 10px;
     align-content: flex-end;
     overflow: hidden;
 }
@@ -43,7 +43,7 @@
     height: 80px;
     grid-row: 1;
     grid-column: 3;
-    padding: 0px 40px;
+    padding: 0 40px;
     column-gap: 10px;
     row-gap: 20px;
     z-index: 2;
@@ -76,4 +76,19 @@ mat-card-title{
 }
 .age b, .height b, .weight b{
     color: rgb(128, 128, 128);
+}
+
+.ruta{
+  cursor: pointer;
+  padding: 5px;
+}
+
+.ruta:hover{
+  box-shadow: 1px 1px 5px lightgray;
+  border-radius: 5px;
+}
+
+mat-form-field{
+  margin-left: auto;
+  padding-top: 1.34375em !important;
 }
