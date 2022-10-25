@@ -21,7 +21,7 @@ export class PlayersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPlayers(selected);
+    this.getPlayers(this.selected);
   }
 
   getPlayers(year:string){
@@ -61,7 +61,7 @@ export class PlayersComponent implements OnInit {
     this.sacramentoPlayers = [];
     this.vegaPlayers = [];
     this.utahPlayers = [];
-    this.getPlayers(+this.selected);
+    this.getPlayers(this.selected);
   }
 
   redirect(url: string) {

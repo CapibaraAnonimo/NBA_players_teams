@@ -13,7 +13,7 @@ export class PlayersDetailsComponent implements OnInit {
   currentPlayer: Standard | undefined;
   selected: string = '2022';
 
-  constructor(private route: ActivatedRoute, private playerService:PlayersServic, private router: Routere) { }
+  constructor(private route: ActivatedRoute, private playerService:PlayersService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params =>{
@@ -42,10 +42,9 @@ export class PlayersDetailsComponent implements OnInit {
   getTeamSVG(idTeam: string) {
     return `https://cdn.nba.com/logos/nba/${idTeam}/global/L/logo.svg`
   }
-  }
 
-  reCharge() {
-  }
+  reCharge(){
+  };
 
   redirect(url: string) {
     this.router.navigate([`/${url}`]);
