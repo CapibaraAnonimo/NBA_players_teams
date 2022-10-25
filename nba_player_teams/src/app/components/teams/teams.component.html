@@ -1,7 +1,7 @@
 <div class="header" fxLayoutAlign="space-around center">
   <img src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png" alt="">
 </div>
-<mat-toolbar >
+<mat-toolbar>
   <div style="width: 300px" fxLayoutAlign="space-between">
     <div (click)="redirect('')" class="ruta">Home</div>
     <div (click)="redirect('teams')" class="ruta">Teams</div>
@@ -19,12 +19,39 @@
     </mat-select>
   </mat-form-field>
 </mat-toolbar>
+
 <mat-tab-group dynamicHeight animationDuration="0">
   <mat-tab label="Default">
-    <div class="container">
+    <div class="container" fxLayout="row" fxLayoutAlign="space-evenly  center">
       <div *ngIf="standard.length == 0">No Hay datos</div>
-      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+      <mat-accordion fxLayout="column wrap" fxLayoutAlign="space-evenly  center">
         <mat-expansion-panel *ngFor="let team of standard" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+
+      <mat-accordion fxLayout="column" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of standard2" style="width: 700px; margin-bottom: 20px">
           <mat-expansion-panel-header>
             <mat-panel-title style="font-size: 15px">
               {{team.fullName}}
@@ -52,10 +79,35 @@
 
 
   <mat-tab label="Africa">
-    <div class="container">
+    <div class="container" fxLayout="row" fxLayoutAlign="space-evenly  center">
       <div *ngIf="africa.length == 0">No Hay datos</div>
       <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
         <mat-expansion-panel *ngFor="let team of africa" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of africa2" style="width: 700px; margin-bottom: 20px">
           <mat-expansion-panel-header>
             <mat-panel-title style="font-size: 15px">
               {{team.fullName}}
@@ -83,10 +135,35 @@
 
 
   <mat-tab label="Sacramento">
-    <div class="container">
+    <div class="container" fxLayout="row" fxLayoutAlign="space-evenly  center">
       <div *ngIf="sacramento.length == 0">No Hay datos</div>
       <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
         <mat-expansion-panel *ngFor="let team of sacramento" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of sacramento2" style="width: 700px; margin-bottom: 20px">
           <mat-expansion-panel-header>
             <mat-panel-title style="font-size: 15px">
               {{team.fullName}}
@@ -114,10 +191,35 @@
 
 
   <mat-tab label="vegas">
-    <div class="container">
+    <div class="container" fxLayout="row" fxLayoutAlign="space-evenly  center">
       <div *ngIf="vega.length == 0">No Hay datos</div>
       <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
         <mat-expansion-panel *ngFor="let team of vega" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of vega2" style="width: 700px; margin-bottom: 20px">
           <mat-expansion-panel-header>
             <mat-panel-title style="font-size: 15px">
               {{team.fullName}}
@@ -145,10 +247,35 @@
 
 
   <mat-tab label="Utah">
-    <div class="container">
+    <div class="container" fxLayout="row" fxLayoutAlign="space-evenly  center">
       <div *ngIf="utah.length == 0">No Hay datos</div>
       <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
         <mat-expansion-panel *ngFor="let team of utah" style="width: 700px; margin-bottom: 20px">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 15px">
+              {{team.fullName}}
+              <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row">
+            <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+            <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+              <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+                Ciudad: {{team.altCityName}}<br>
+                Nombre: {{team.fullName}}<br>
+                Acrónimo: {{team.tricode}}<br>
+                Id: {{team.teamId}}<br>
+                Nickname: {{team.nickname}}<br>
+                Localización: {{team.divName}}
+                <button routerLink="{{team.teamId}}" mat-raised-button>Ver</button>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion fxLayout="row wrap" fxLayoutAlign="space-evenly  center">
+        <mat-expansion-panel *ngFor="let team of utah2" style="width: 700px; margin-bottom: 20px">
           <mat-expansion-panel-header>
             <mat-panel-title style="font-size: 15px">
               {{team.fullName}}
