@@ -1,7 +1,7 @@
 <div class="header" fxLayoutAlign="space-around center">
   <img src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png" alt="">
 </div>
-<mat-toolbar >
+<mat-toolbar>
   <div style="width: 300px" fxLayoutAlign="space-between">
     <div (click)="redirect('')" class="ruta">Home</div>
     <div (click)="redirect('teams')" class="ruta">Teams</div>
@@ -21,55 +21,62 @@
 </mat-toolbar>
 
 <div *ngIf="players.length <= 0">No hay datos de jugadores</div>
-<table mat-table [dataSource]="players" class="mat-elevation-z8" *ngIf="players.length > 0" style="margin-top: 25px">
+<div fxLayout="column">
+  <table mat-table [dataSource]="players" class="mat-elevation-z8" *ngIf="players.length > 0" style="margin-top: 25px">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="firstName">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let element">
-      <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{element.personId}}.png"
-           style="height: 32px" alt="{{element.firstName}} {{element.lastName}}"
-           onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Placeholder_no_text.svg/1200px-Placeholder_no_text.svg.png';">
-      {{element.firstName}} {{element.lastName}}
-    </td>
-  </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">
+        <img
+          src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{element.personId}}.png"
+          style="height: 32px" alt="{{element.firstName}} {{element.lastName}}"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Placeholder_no_text.svg/1200px-Placeholder_no_text.svg.png';">
+        {{element.firstName}} {{element.lastName}}
+      </td>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="team">
-    <th mat-header-cell *matHeaderCellDef>Team</th>
-    <td mat-cell *matCellDef="let element">{{element.teamId || '?'}}</td>
-  </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="team">
+      <th mat-header-cell *matHeaderCellDef>Team</th>
+      <td mat-cell *matCellDef="let element">{{element.teamId || '?'}}</td>
+    </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="jersey">
-    <th mat-header-cell *matHeaderCellDef class="header-align-right">Number</th>
-    <td mat-cell *matCellDef="let element" class="header-align-right">{{element.jersey || '?'}}</td>
-  </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="jersey">
+      <th mat-header-cell *matHeaderCellDef class="header-align-right">Number</th>
+      <td mat-cell *matCellDef="let element" class="header-align-right">{{element.jersey || '?'}}</td>
+    </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="pos">
-    <th mat-header-cell *matHeaderCellDef>Pos</th>
-    <td mat-cell *matCellDef="let element">{{element.pos || '?'}}</td>
-  </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="pos">
+      <th mat-header-cell *matHeaderCellDef>Pos</th>
+      <td mat-cell *matCellDef="let element">{{element.pos || '?'}}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="heightMeters">
-    <th mat-header-cell *matHeaderCellDef class="header-align-right">Height</th>
-    <td mat-cell *matCellDef="let element" class="header-align-right">{{element.heightMeters || '?'}}m</td>
-  </ng-container>
+    <ng-container matColumnDef="heightMeters">
+      <th mat-header-cell *matHeaderCellDef class="header-align-right">Height</th>
+      <td mat-cell *matCellDef="let element" class="header-align-right">{{element.heightMeters || '?'}}m</td>
+    </ng-container>
 
-  <ng-container matColumnDef="weightKilograms">
-    <th mat-header-cell *matHeaderCellDef>Weight</th>
-    <td mat-cell *matCellDef="let element">{{element.weightKilograms || '?'}}Kg</td>
-  </ng-container>
+    <ng-container matColumnDef="weightKilograms">
+      <th mat-header-cell *matHeaderCellDef>Weight</th>
+      <td mat-cell *matCellDef="let element">{{element.weightKilograms || '?'}}Kg</td>
+    </ng-container>
 
-  <ng-container matColumnDef="country">
-    <th mat-header-cell *matHeaderCellDef>Country</th>
-    <td mat-cell *matCellDef="let element">{{element.country || '?'}}</td>
-  </ng-container>
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef>Country</th>
+      <td mat-cell *matCellDef="let element">{{element.country || '?'}}</td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <br>
+  <h2 fxLayoutAlign="center">Last 10 Matches</h2>
+  <app-matches-table [schedule]="schedule" fxLayoutAlign="center"></app-matches-table>
+</div>

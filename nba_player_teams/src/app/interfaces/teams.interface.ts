@@ -10,67 +10,7 @@ export interface Internal {
   endToEndTimeMillis: string;
 }
 
-export interface Standard {
-  isNBAFranchise: boolean;
-  isAllStar: boolean;
-  city: string;
-  altCityName: string;
-  fullName: string;
-  tricode: string;
-  teamId: string;
-  nickname: string;
-  urlName: string;
-  teamShortName: string;
-  confName: string;
-  divName: string;
-}
-
-export interface Africa {
-  isNBAFranchise: boolean;
-  isAllStar: boolean;
-  city: string;
-  altCityName: string;
-  fullName: string;
-  tricode: string;
-  teamId: string;
-  nickname: string;
-  urlName: string;
-  teamShortName: string;
-  confName: string;
-  divName: string;
-}
-
-export interface Sacramento {
-  isNBAFranchise: boolean;
-  isAllStar: boolean;
-  city: string;
-  altCityName: string;
-  fullName: string;
-  tricode: string;
-  teamId: string;
-  nickname: string;
-  urlName: string;
-  teamShortName: string;
-  confName: string;
-  divName: string;
-}
-
-export interface Vega {
-  isNBAFranchise: boolean;
-  isAllStar: boolean;
-  city: string;
-  altCityName: string;
-  fullName: string;
-  tricode: string;
-  teamId: string;
-  nickname: string;
-  urlName: string;
-  teamShortName: string;
-  confName: string;
-  divName: string;
-}
-
-export interface Utah {
+export interface Team {
   isNBAFranchise: boolean;
   isAllStar: boolean;
   city: string;
@@ -86,11 +26,11 @@ export interface Utah {
 }
 
 export interface League {
-  standard: Standard[];
-  africa: Africa[];
-  sacramento: Sacramento[];
-  vegas: Vega[];
-  utah: Utah[];
+  standard: Team[];
+  africa: Team[];
+  sacramento: Team[];
+  vegas: Team[];
+  utah: Team[];
 }
 
 export interface TeamsResponse {

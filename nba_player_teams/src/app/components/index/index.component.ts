@@ -13,7 +13,6 @@ import {Router} from "@angular/router";
 export class IndexComponent implements OnInit {
   selected: string = '2022';
   schedule!: Liga[];
-  displayedColumns: string[] = ['date', 'host', 'visitor'];
 
   constructor(private scheduleService: ScheduleService, private router: Router) {
   }
@@ -27,11 +26,6 @@ export class IndexComponent implements OnInit {
       this.schedule = response.league.standard.slice(0, 10);
     });
   }
-
-
- getTeamLogo(id: string){
-  return `https://cdn.nba.com/logos/nba/${id}/global/L/logo.svg`
- }
 
   reCharge() {
     this.getSchedule();
