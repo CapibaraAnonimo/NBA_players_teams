@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Liga} from "../../interfaces/schedule.interface";
 import {ScheduleService} from "../../services/schedule.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-index',
@@ -11,10 +10,11 @@ import {Router} from "@angular/router";
 
 
 export class IndexComponent implements OnInit {
-  selected: string = '2022';
   schedule!: Liga[];
+  selected = '2022';
 
-  constructor(private scheduleService: ScheduleService, private router: Router) {
+
+  constructor(private scheduleService: ScheduleService) {
   }
 
   ngOnInit(): void {
@@ -28,10 +28,12 @@ export class IndexComponent implements OnInit {
   }
 
   reCharge() {
+    this.schedule = [];
     this.getSchedule();
   }
 
-  redirect(url: string) {
-    this.router.navigate([`/${url}`]);
+  onSelectedYear(year: string) {
+    this.selected = year;
+    this.reCharge();
   }
 }

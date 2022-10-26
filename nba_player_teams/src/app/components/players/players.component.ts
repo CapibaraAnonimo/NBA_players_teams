@@ -1,6 +1,5 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {retry} from 'rxjs';
-import {Internal, League, Standard} from 'src/app/interfaces/players.interface';
+import {Component, OnInit} from '@angular/core';
+import {Standard} from 'src/app/interfaces/players.interface';
 import {PlayersService} from 'src/app/services/players.service';
 import {Router} from "@angular/router";
 
@@ -17,6 +16,7 @@ export class PlayersComponent implements OnInit {
   utahPlayers: Standard[] = [];
 
   selected: string = '2022';
+
   constructor(private PlayersService: PlayersService, private router: Router) {
   }
 
@@ -24,8 +24,8 @@ export class PlayersComponent implements OnInit {
     this.getPlayers(this.selected);
   }
 
-  getPlayers(year:string){
-    this.PlayersService.getPlayers(year).subscribe(resp =>{
+  getPlayers(year: string) {
+    this.PlayersService.getPlayers(year).subscribe(resp => {
       this.listPlayers = resp.league.standard;
       this.africaPlayers = resp.league.africa;
       this.sacramentoPlayers = resp.league.sacramento;
@@ -33,6 +33,7 @@ export class PlayersComponent implements OnInit {
       this.utahPlayers = resp.league.utah;
     })
   }
+
   reCharge() {
     this.listPlayers = [];
     this.africaPlayers = [];
@@ -44,6 +45,11 @@ export class PlayersComponent implements OnInit {
 
   redirect(url: string) {
     this.router.navigate([`/${url}`]);
+  }
+
+  onSelectedYear(year: string) {
+    this.selected = year;
+    this.reCharge();
   }
 }
 

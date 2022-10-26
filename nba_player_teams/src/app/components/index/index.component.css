@@ -1,81 +1,50 @@
-.container{
-    background-color: rgb(245, 245, 245);
-}
-.button{
-    display: grid;
-    overflow: hidden;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.397);
-    filter: grayscale(100%);
-}
-.button:hover{
-    filter: grayscale(0%);
-    transform: scale(1.01);
-}
-.button div{
-    z-index: 2;
-    grid-row: 4;
-    grid-column: 1;
-    background-color: rgba(0, 0, 0, 0.4);
-
-    text-align: center;
-    font-size: 32px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 600;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-    color: aliceblue;
-}
-.button img{
-    z-index: 1;
-    grid-row-start: 1;
-    grid-row-end: 6;
-    grid-column: 1;
-
-    width: 600px;
-    height: auto;
+.container {
+  background-color: rgb(245, 245, 245);
 }
 
-img{
-    width: 80px;
-}
-table {
-    width: 600px;
-  }
-
-
-.ruta{
-  cursor: pointer;
-  padding: 20px;
-  height: 100%;
-  background-color: white;
-}
-
-.ruta:hover{
-  background-color:rgb(245, 245, 245);
-}
-
-mat-form-field{
-  margin-left: auto;
-}
-mat-toolbar{
-  background-color: white;
+.button {
+  display: grid;
   overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.397);
+  filter: grayscale(100%);
 }
 
-::ng-deep .mat-form-field-wrapper{
-  background-color: white;
-  margin-bottom: -0.8em;
-  margin-right: -1.25em;
-  transform: scale(0.85)translateX(10%)translateY(5px);
+.button:hover {
+  filter: grayscale(0%);
+  transform: scale(1.01);
 }
-.header{
-  height: 300px;
-  background-color: black;
+
+.button div {
+  z-index: 2;
+  grid-row: 4;
+  grid-column: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  color: aliceblue;
 }
-.header img{
-  height: 100%;
-  width: auto;
+
+.button img {
+  z-index: 1;
+  grid-row-start: 1;
+  grid-row-end: 6;
+  grid-column: 1;
+  width: 600px;
+  height: auto;
+}
+
+img {
+  width: 80px;
+}
+
+table {
+  width: 600px;
 }

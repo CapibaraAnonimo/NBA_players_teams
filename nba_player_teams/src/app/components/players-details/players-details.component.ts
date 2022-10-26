@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { PlayersService } from 'src/app/services/players.service';
+import {PlayersService} from 'src/app/services/players.service';
 import {Standard} from "../../interfaces/players.interface";
 
 @Component({
@@ -9,43 +9,45 @@ import {Standard} from "../../interfaces/players.interface";
   styleUrls: ['./players-details.component.css']
 })
 export class PlayersDetailsComponent implements OnInit {
-  id= '';
+  id = '';
   currentPlayer: Standard | undefined;
   selected: string = '2022';
 
-  constructor(private route: ActivatedRoute, private playerService:PlayersService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private playerService: PlayersService, private router: Router) {
+  }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params =>{
+    this.route.params.subscribe(params => {
       this.id = params['id']
     })
     this.getPlayer(this.selected);
   }
 
-  getPlayer(year:string){
-    this.playerService.getPlayers(year).subscribe(resp=>{
-      let playersArray =[...resp.league.standard, ...resp.league.africa, ...resp.league.sacramento, ...resp.league.vegas, ...resp.league.utah];
+  getPlayer(year: string) {
+    this.playerService.getPlayers(year).subscribe(resp => {
+      let playersArray = [...resp.league.standard, ...resp.league.africa, ...resp.league.sacramento, ...resp.league.vegas, ...resp.league.utah];
       this.currentPlayer = playersArray.find(x => x.personId === this.id);
     })
   }
-  getPlayerImg(player:Standard){
-    let imgUrl="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/"+player.personId+".png";
 
-    return imgUrl;
+  getPlayerImg(player: Standard) {
+    return "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/" + player.personId + ".png";
   }
-  getPlayerAge(player: Standard){
+
+  getPlayerAge(player: Standard) {
     let age: number;
     var timeDiff = Math.abs(Date.now() - new Date(player.dateOfBirthUTC).getTime());
     age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
     return age;
   }
+
   getTeamSVG(idTeam: string) {
     return `https://cdn.nba.com/logos/nba/${idTeam}/global/L/logo.svg`
   }
 
   reCharge() {
-    this.playerService.getPlayers(this.selected).subscribe(resp=>{
-      let playersArray =[...resp.league.standard, ...resp.league.africa, ...resp.league.sacramento, ...resp.league.vegas, ...resp.league.utah];
+    this.playerService.getPlayers(this.selected).subscribe(resp => {
+      let playersArray = [...resp.league.standard, ...resp.league.africa, ...resp.league.sacramento, ...resp.league.vegas, ...resp.league.utah];
       this.currentPlayer = playersArray.find(x => x.personId === this.id);
     })
   }
@@ -53,7 +55,13 @@ export class PlayersDetailsComponent implements OnInit {
   redirect(url: string) {
     this.router.navigate([`/${url}`]);
   }
+
   handleMissingImage($evento: ErrorEvent) {
     ($evento.target as HTMLImageElement).src = "/assets/images/missingPlayer.png";
+  }
+
+  onSelectedYear(year: string) {
+    this.selected = year;
+    this.reCharge();
   }
 }
