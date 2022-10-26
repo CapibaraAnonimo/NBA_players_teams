@@ -1,0 +1,18 @@
+<div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
+    <div *ngFor="let player of playerList" style="display: flexbox;">
+     <mat-card class="playerCard" routerLink="{{player.personId}}">
+         <div class="pos">
+             <b>{{this.player.jersey}}</b><br>
+             {{this.player.pos}}
+         </div>
+         <div class="grid">
+             <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
+             <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
+             <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
+             <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
+         </div>
+         <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
+         <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
+     </mat-card>
+    </div>
+ </div>

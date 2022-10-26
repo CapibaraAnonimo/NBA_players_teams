@@ -1,128 +1,46 @@
 <div class="header" fxLayoutAlign="space-around center">
-    <img src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png" alt="">
+  <img
+    src="https://graffica.info/wp-content/uploads/2017/08/NBA-logo-png-download-free-1200x675.png"
+    alt=""
+  />
+</div>
+<mat-toolbar>
+  <div style="width: 300px" fxLayoutAlign="space-between">
+    <div (click)="redirect('')" class="ruta">Home</div>
+    <div (click)="redirect('teams')" class="ruta">Teams</div>
+    <div (click)="redirect('players')" class="ruta">Players</div>
   </div>
-  <mat-toolbar >
-    <div style="width: 300px" fxLayoutAlign="space-between">
-      <div (click)="redirect('')" class="ruta">Home</div>
-      <div (click)="redirect('teams')" class="ruta">Teams</div>
-      <div (click)="redirect('players')" class="ruta">Players</div>
-    </div>
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Año</mat-label>
-      <mat-select [(value)]="selected" (selectionChange)="reCharge()">
-        <mat-option value="2018">2018</mat-option>
-        <mat-option value="2019">2019</mat-option>
-        <mat-option value="2020">2020</mat-option>
-        <mat-option value="2021">2021</mat-option>
-        <mat-option value="2022">2022</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-toolbar>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Año</mat-label>
+    <mat-select [(value)]="selected" (selectionChange)="reCharge()">
+      <mat-option value="2018">2018</mat-option>
+      <mat-option value="2019">2019</mat-option>
+      <mat-option value="2020">2020</mat-option>
+      <mat-option value="2021">2021</mat-option>
+      <mat-option value="2022">2022</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>
 <mat-tab-group>
-    <mat-tab label="Standard">
-        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
-            <div *ngFor="let player of listPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" routerLink="{{player.personId}}">
-                 <div class="pos">
-                     <b>{{this.player.jersey}}</b><br>
-                     {{this.player.pos}}
-                 </div>
-                 <div class="grid">
-                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
-                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
-                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
-                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
-                 </div>
-                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
-                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
-             </mat-card>
-            </div>
-         </div>
-    </mat-tab>
-    <mat-tab label="Africa">
-        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
-            <div *ngFor="let player of africaPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" routerLink="{{player.personId}}">
-                 <div class="pos">
-                     <b>{{this.player.jersey}}</b><br>
-                     {{this.player.pos}}
-                 </div>
-                 <div class="grid">
-                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
-                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
-                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
-                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
-                 </div>
-                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
-                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
-             </mat-card>
-            </div>
-         </div>
-    </mat-tab>
-    <mat-tab label="Sacramento">
-        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
-            <div *ngFor="let player of sacramentoPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" routerLink="{{player.personId}}">
-                 <div class="pos">
-                     <b>{{this.player.jersey}}</b><br>
-                     {{this.player.pos}}
-                 </div>
-                 <div class="grid">
-                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
-                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
-                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
-                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
-                 </div>
-                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
-                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
-             </mat-card>
-            </div>
-         </div>
-    </mat-tab>
-    <mat-tab label="Vega">
-        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
-            <div *ngFor="let player of vegaPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" routerLink="{{player.personId}}">
-                 <div class="pos">
-                     <b>{{this.player.jersey}}</b><br>
-                     {{this.player.pos}}
-                 </div>
-                 <div class="grid">
-                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
-                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
-                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
-                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
-                 </div>
-                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
-                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
-             </mat-card>
-            </div>
-         </div>
-    </mat-tab>
-    <mat-tab label="Utah">
-        <div fxLayoutAlign="space-around center" fxLayoutGap="20px grid" class="container">
-            <div *ngFor="let player of utahPlayers" style="display: flexbox;">
-             <mat-card class="playerCard" routerLink="{{player.personId}}">
-                 <div class="pos">
-                     <b>{{this.player.jersey}}</b><br>
-                     {{this.player.pos}}
-                 </div>
-                 <div class="grid">
-                     <mat-card-title>{{this.player.firstName}} <b>{{this.player.lastName}}</b></mat-card-title>
-                     <div class="age"><b>Age:</b> {{getPlayerAge(this.player)}}</div>
-                     <div class="height"><b>Height:</b> {{this.player.heightMeters}}m</div>
-                     <div class="weight"><b>Weight:</b> {{this.player.weightKilograms}}kg</div>
-                 </div>
-                 <img [src]="getPlayerImg(this.player)" class="playerImg" (error)="handleMissingImage($event)">
-                 <img [src]="getTeamSVG(this.player.teamId)" class="prueba">
-             </mat-card>
-            </div>
-         </div>
-    </mat-tab>
+  <mat-tab label="Standard">
+    <div *ngIf="listPlayers.length == 0">No Hay datos</div>
+    <app-player [playerList]="listPlayers"></app-player>
+  </mat-tab>
+  <mat-tab label="Africa">
+    <div *ngIf="africaPlayers.length == 0">No Hay datos</div>
+    <app-player [playerList]="africaPlayers"></app-player>
+  </mat-tab>
+  <mat-tab label="Sacramento">
+    <div *ngIf="sacramentoPlayers.length == 0">No Hay datos</div>
+    <app-player [playerList]="sacramentoPlayers"></app-player>
+  </mat-tab>
+  <mat-tab label="Vega">
+    <div *ngIf="vegaPlayers.length == 0">No Hay datos</div>
+    <app-player [playerList]="vegaPlayers"></app-player>
+  </mat-tab>
+  <mat-tab label="Utah">
+    <div *ngIf="utahPlayers.length == 0">No Hay datos</div>
+    <app-player [playerList]="utahPlayers"></app-player>
+  </mat-tab>
 </mat-tab-group>
-
-
-
-
-
