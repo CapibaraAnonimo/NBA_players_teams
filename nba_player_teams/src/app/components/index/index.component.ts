@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Liga} from "../../interfaces/schedule.interface";
 import {ScheduleService} from "../../services/schedule.service";
 import {Router} from "@angular/router";
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-index',
@@ -11,11 +12,14 @@ import {Router} from "@angular/router";
 
 
 export class IndexComponent implements OnInit {
-  selected: string = '2022';
+  @Output() myEvent = new EventEmitter();
+
   schedule!: Liga[];
   displayedColumns: string[] = ['date', 'host', 'visitor'];
+  selection='';
 
-  constructor(private scheduleService: ScheduleService, private router: Router) {
+
+  constructor(private scheduleService: ScheduleService) {
   }
 
   ngOnInit(): void {
@@ -23,7 +27,7 @@ export class IndexComponent implements OnInit {
   }
 
   getSchedule() {
-    this.scheduleService.getSchedule(this.selected).subscribe(response => {
+    this.scheduleService.getSchedule(this.selection).subscribe(response => {
       this.schedule = response.league.standard.slice(0, 10);
     });
   }
@@ -34,10 +38,7 @@ export class IndexComponent implements OnInit {
  }
 
   reCharge() {
+    this.schedule=[];
     this.getSchedule();
-  }
-
-  redirect(url: string) {
-    this.router.navigate([`/${url}`]);
   }
 }

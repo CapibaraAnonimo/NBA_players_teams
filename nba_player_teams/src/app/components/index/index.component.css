@@ -61,8 +61,11 @@ mat-form-field{
   margin-left: auto;
 }
 mat-toolbar{
+  z-index: 5;
   background-color: white;
   overflow: hidden;
+  position: sticky;
+  top: 0;
 }
 
 ::ng-deep .mat-form-field-wrapper{

@@ -13,6 +13,7 @@ import { PlayersComponent } from './components/players/players.component';
 import { IndexComponent } from './components/index/index.component';
 import { PlayersDetailsComponent } from './components/players-details/players-details.component';
 import { PlayerComponent } from './components/player/player.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PlayerComponent } from './components/player/player.component';
     PlayersComponent,
     IndexComponent,
     PlayersDetailsComponent,
-    PlayerComponent
+    PlayerComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
