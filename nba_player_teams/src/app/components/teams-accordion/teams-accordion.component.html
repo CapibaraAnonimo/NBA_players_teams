@@ -2,8 +2,8 @@
   <mat-expansion-panel *ngFor="let team of teams" style="width: 700px; margin-bottom: 20px">
     <mat-expansion-panel-header>
       <mat-panel-title style="font-size: 15px">
-        {{team.fullName}}
         <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+        {{team.fullName}}
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div fxLayout="row">

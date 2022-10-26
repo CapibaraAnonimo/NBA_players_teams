@@ -1,7 +1,7 @@
 .container {
   flex-wrap: wrap;
-  padding: 50px;
   background-color: rgb(245, 245, 245);
+  padding-top: 40px;
 }
 
 .playerCard {
@@ -9,7 +9,7 @@
   display: grid;
   width: 530px;
   height: 180px;
-  margin: 4px 5px;
+  margin-bottom: 40px;
   cursor: pointer;
   padding: 0 10px;
   align-content: flex-end;
