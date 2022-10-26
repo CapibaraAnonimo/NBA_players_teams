@@ -18,7 +18,7 @@ Pagina de información de la NBA, se puede acceder a la lista de jugadores y equ
 ![Captura de pantalla 2022-10-26 141207](https://user-images.githubusercontent.com/93126408/198022877-4ceb2640-ef7a-4719-b86c-8af9622499a1.png)
 
 ### Detalle de equipo
-![Captura de pantalla 2022-10-26 141302](https://user-images.githubusercontent.com/93126408/198023036-4f856906-651b-4ed1-afd6-e286e79d53de.png)
+![Captura de pantalla 2022-10-26 142128](https://user-images.githubusercontent.com/93126408/198024832-b7e75eff-5dd3-4eb0-98c5-7e15f8aeaf78.png)
 
 ![Captura de pantalla 2022-10-26 141332](https://user-images.githubusercontent.com/93126408/198023131-5b8b5c2d-7312-4b6b-8771-eded7bdbdf21.png)
 
