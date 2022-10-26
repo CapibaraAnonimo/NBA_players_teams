@@ -1,0 +1,24 @@
+<mat-accordion fxLayout="column wrap" fxLayoutAlign="space-evenly  center">
+  <mat-expansion-panel *ngFor="let team of teams" style="width: 700px; margin-bottom: 20px">
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-size: 15px">
+        {{team.fullName}}
+        <img src="{{getTeamSVG(team.teamId)}}" height="48px" alt="{{team.fullName}} logo">
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div fxLayout="row">
+      <img src="{{getTeamSVG(team.teamId)}}" width="200px" alt="{{team.fullName}} logo">
+      <div fxLayout="row" fxLayoutAlign="center" style="    width: -moz-available; width: -webkit-fill-available">
+        <div fxLayout="column" fxLayoutAlign="center" style="line-height: 200%">
+          Ciudad: {{team.altCityName}}<br>
+          Nombre: {{team.fullName}}<br>
+          Acrónimo: {{team.tricode}}<br>
+          Id: {{team.teamId}}<br>
+          Nickname: {{team.nickname}}<br>
+          Localización: {{team.divName}}
+          <button routerLink="{{team.teamId}}" mat-raised-button>Ver Plantilla</button>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

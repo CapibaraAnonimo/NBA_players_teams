@@ -12,6 +12,8 @@ import { TeamsDetailsComponent } from './components/teams-details/teams-details.
 import { PlayersComponent } from './components/players/players.component';
 import { IndexComponent } from './components/index/index.component';
 import { PlayersDetailsComponent } from './components/players-details/players-details.component';
+import { TeamsAccordionComponent } from './components/teams-accordion/teams-accordion.component';
+import { MatchesTableComponent } from './components/matches-table/matches-table.component';
 import { PlayerComponent } from './components/player/player.component';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -25,6 +27,8 @@ import { HeaderComponent } from './components/header/header.component';
     PlayersComponent,
     IndexComponent,
     PlayersDetailsComponent,
+    TeamsAccordionComponent,
+    MatchesTableComponent,
     PlayerComponent,
     HeaderComponent
   ],
