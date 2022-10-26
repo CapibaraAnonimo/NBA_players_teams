@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() selected = '2022';
+  selected: string = '2022';
+  @Output() onSelected = new EventEmitter<string>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
@@ -19,5 +20,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([`/${url}`]);
   }
 
-
+  onSelectedYear(year: string) {
+    this.onSelected.emit(year);
+  }
 }

@@ -1,8 +1,8 @@
-body{
+body {
   background-color: rgb(245, 245, 245);
 }
 
-.container{
+.container {
   padding-top: 25px;
   background-color: rgb(245, 245, 245);
 }
@@ -13,38 +13,4 @@ body{
 
 .mat-form-field + .mat-form-field {
   margin-left: 8px;
-}
-
-.ruta{
-  cursor: pointer;
-  padding: 20px;
-  height: 100%;
-  background-color: white;
-}
-
-.ruta:hover{
-  background-color:rgb(245, 245, 245);
-}
-
-mat-form-field{
-  margin-left: auto;
-}
-mat-toolbar{
-  background-color: white;
-  overflow: hidden;
-}
-
-::ng-deep .mat-form-field-wrapper{
-  background-color: white;
-  margin-bottom: -0.8em;
-  margin-right: -1.25em;
-  transform: scale(0.85)translateX(10%)translateY(5px);
-}
-.header{
-  height: 300px;
-  background-color: black;
-}
-.header img{
-  height: 100%;
-  width: auto;
 }

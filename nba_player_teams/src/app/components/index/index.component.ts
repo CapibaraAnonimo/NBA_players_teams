@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Liga} from "../../interfaces/schedule.interface";
 import {ScheduleService} from "../../services/schedule.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-index',
@@ -11,11 +10,8 @@ import {Router} from "@angular/router";
 
 
 export class IndexComponent implements OnInit {
-  @Output() myEvent = new EventEmitter();
-
   schedule!: Liga[];
-  displayedColumns: string[] = ['date', 'host', 'visitor'];
-  selection='';
+  selected = '2022';
 
 
   constructor(private scheduleService: ScheduleService) {
@@ -26,13 +22,18 @@ export class IndexComponent implements OnInit {
   }
 
   getSchedule() {
-    this.scheduleService.getSchedule(this.selection).subscribe(response => {
+    this.scheduleService.getSchedule(this.selected).subscribe(response => {
       this.schedule = response.league.standard.slice(0, 10);
     });
   }
 
   reCharge() {
-    this.schedule=[];
+    this.schedule = [];
     this.getSchedule();
+  }
+
+  onSelectedYear(year: string) {
+    this.selected = year;
+    this.reCharge();
   }
 }

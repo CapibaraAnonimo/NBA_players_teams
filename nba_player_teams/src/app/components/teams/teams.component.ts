@@ -140,4 +140,9 @@ export class TeamsComponent implements OnInit {
   redirect(url: string) {
     this.router.navigate([`/${url}`]);
   }
+
+  onSelectedYear(year: string) {
+    this.selected = year;
+    this.reCharge();
+  }
 }

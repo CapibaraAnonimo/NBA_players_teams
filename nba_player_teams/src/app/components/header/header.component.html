@@ -13,7 +13,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Año</mat-label>
-    <mat-select [(value)]="selected" (selectionChange)="reCharge()">
+    <mat-select [(value)]="selected" (selectionChange)="onSelectedYear(selected)">
       <mat-option value="2018">2018</mat-option>
       <mat-option value="2019">2019</mat-option>
       <mat-option value="2020">2020</mat-option>
