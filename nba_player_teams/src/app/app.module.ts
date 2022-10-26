@@ -13,6 +13,7 @@ import { PlayersComponent } from './components/players/players.component';
 import { IndexComponent } from './components/index/index.component';
 import { PlayersDetailsComponent } from './components/players-details/players-details.component';
 import { TeamsAccordionComponent } from './components/teams-accordion/teams-accordion.component';
+import { MatchesTableComponent } from './components/matches-table/matches-table.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TeamsAccordionComponent } from './components/teams-accordion/teams-acco
     PlayersComponent,
     IndexComponent,
     PlayersDetailsComponent,
-    TeamsAccordionComponent
+    TeamsAccordionComponent,
+    MatchesTableComponent
   ],
   imports: [
     BrowserModule,
